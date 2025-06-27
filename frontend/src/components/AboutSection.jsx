@@ -27,13 +27,13 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container-width section-padding">
+    <section id="about" className="py-16 sm:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-poppins leading-tight">
             Why Choose <span className="text-gradient">MiM Academy</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We believe in the power of personalized education to transform lives and unlock potential.
           </p>
         </AnimatedSection>
@@ -55,7 +55,7 @@ const AboutSection = () => {
           <AnimatedSection animation="slide-left" delay={200}>
             <div className="space-y-8">
               <div className="prose prose-lg text-gray-700">
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed mb-6">
                   At MiM Academy, we understand that every learner is unique. Our approach combines traditional 
                   teaching excellence with modern educational methodologies to create a learning environment 
                   that fosters growth, confidence, and success.
@@ -68,7 +68,7 @@ const AboutSection = () => {
               </div>
 
               {/* Features Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {features.map((feature, index) => (
                   <AnimatedSection 
                     key={index} 
@@ -80,8 +80,8 @@ const AboutSection = () => {
                       {feature.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                     </div>
                   </AnimatedSection>
                 ))}

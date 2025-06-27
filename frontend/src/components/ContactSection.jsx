@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, Instagram, Clock } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const ContactSection = () => {
@@ -31,25 +31,25 @@ const ContactSection = () => {
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 765-4321"],
+      details: ["+44 7404755222"],
       action: "Call Us"
     },
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: "Email",
-      details: ["info@mimacademy.com", "support@mimacademy.com"],
+      details: ["info@mimacademy.org", "ismaeel@mimacademy.org"],
       action: "Email Us"
     },
     {
-      icon: <MapPin className="h-6 w-6 text-primary" />,
-      title: "Location",
-      details: ["123 Education Street", "Learning City, LC 12345"],
-      action: "Visit Us"
+      icon: <Instagram className="h-6 w-6 text-primary" />,
+      title: "Instagram",
+      details: ["@mimacademyofficial"],
+      action: "Follow Us"
     },
     {
       icon: <Clock className="h-6 w-6 text-primary" />,
       title: "Hours",
-      details: ["Mon-Fri: 9:00 AM - 8:00 PM", "Sat-Sun: 10:00 AM - 6:00 PM"],
+      details: ["Mon-Sun: Available", "Flexible Scheduling"],
       action: "Schedule"
     }
   ];
@@ -108,9 +108,24 @@ const ContactSection = () => {
                   <p className="mb-6 opacity-90">
                     Book a free consultation call with our education experts and get personalized guidance for your learning journey.
                   </p>
-                  <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-gray-100">
-                    Book Free Demo
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button 
+                      variant="secondary" 
+                      size="lg" 
+                      className="bg-white text-primary hover:bg-gray-100"
+                      onClick={() => window.open('https://www.instagram.com/mimacademyofficial?igsh=MTd5cjNwNDkwdXJmNQ==', '_blank')}
+                    >
+                      Follow on Instagram
+                    </Button>
+                    <Button 
+                      variant="secondary" 
+                      size="lg" 
+                      className="bg-white text-primary hover:bg-gray-100"
+                      onClick={() => window.open('tel:+447404755222')}
+                    >
+                      Call Now
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </AnimatedSection>
@@ -120,7 +135,7 @@ const ContactSection = () => {
           <AnimatedSection animation="slide-left">
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Request Callback</CardTitle>
+                <CardTitle className="text-2xl text-gray-900">Enquiry Form</CardTitle>
                 <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
               </CardHeader>
               <CardContent>
@@ -157,7 +172,7 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-
+                  
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
@@ -172,7 +187,7 @@ const ContactSection = () => {
                       placeholder="Enter your phone number"
                     />
                   </div>
-
+                  
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
@@ -188,13 +203,13 @@ const ContactSection = () => {
                       placeholder="Tell us about your learning goals and how we can help..."
                     />
                   </div>
-
+                  
                   <Button 
                     type="submit" 
                     className="w-full gradient-primary text-white hover:opacity-90 transition-opacity"
                     size="lg"
                   >
-                    Send Message
+                    Send Enquiry
                   </Button>
                 </form>
               </CardContent>
