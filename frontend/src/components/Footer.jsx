@@ -1,0 +1,165 @@
+import React from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const Footer = () => {
+  const socialLinks = [
+    { icon: <Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
+    { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/mimacademyofficial", label: "Instagram" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
+    { icon: <Youtube className="h-5 w-5" />, href: "#", label: "YouTube" },
+  ];
+
+  const quickLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "Our Courses", href: "/courses" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "Contact", href: "/contact" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+  ];
+
+  const courses = [
+    { name: "IELTS Preparation", href: "/courses" },
+    { name: "TOEFL Training", href: "/courses" },
+    { name: "Grammar & Communication", href: "/courses" },
+    { name: "Professional Skills", href: "/courses" },
+    { name: "Academic Coaching", href: "/courses" },
+    { name: "Career Guidance", href: "/courses" },
+  ];
+
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="container-width section-padding py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div>
+              <img
+                src="/lovable-uploads/32cf4d4f-b982-406b-8030-cadc1abaf018.png"
+                alt="MiM Academy"
+                className="h-16 w-auto mb-4 brightness-0 invert"
+              />
+              <p className="text-gray-300 leading-relaxed">
+                Empowering learners with personalized coaching and expert guidance for academic and professional success.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 text-primary" />
+                <span className="text-gray-300">+44 (0) 7404755222</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-gray-300">info@mimacademy.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Instagram className="h-4 w-4 text-primary" />
+                <span className="text-gray-300">@mimacademyofficial</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    to={link.href} 
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Courses */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Our Courses</h4>
+            <ul className="space-y-3">
+              {courses.map((course, index) => (
+                <li key={index}>
+                  <Link 
+                    to={course.href} 
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {course.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social & Newsletter */}
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Stay Connected</h4>
+              <p className="text-gray-300 mb-4">
+                Follow us on social media for updates and educational tips.
+              </p>
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="p-2 bg-gray-800 rounded-lg hover:bg-primary transition-colors duration-200"
+                    target={social.href.startsWith('http') ? '_blank' : '_self'}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h5 className="font-semibold mb-3">Newsletter</h5>
+              <p className="text-gray-300 text-sm mb-4">
+                Subscribe to get educational tips and updates.
+              </p>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-white"
+                />
+                <button className="px-4 py-2 bg-primary text-white rounded-r-lg hover:opacity-90 transition-opacity">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © 2024 MiM Academy. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

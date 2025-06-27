@@ -1,0 +1,97 @@
+import React from 'react';
+import { CheckCircle, Users, Clock, Target } from 'lucide-react';
+import AnimatedSection from '@/components/AnimatedSection';
+
+const AboutSection = () => {
+  const features = [
+    {
+      icon: <Users className="h-6 w-6 text-primary" />,
+      title: "Expert Tutors",
+      description: "Certified professionals with years of teaching experience"
+    },
+    {
+      icon: <Clock className="h-6 w-6 text-primary" />,
+      title: "Flexible Schedule",
+      description: "Learn at your own pace with convenient timing options"
+    },
+    {
+      icon: <Target className="h-6 w-6 text-primary" />,
+      title: "Personalized Approach",
+      description: "Customized learning plans tailored to individual needs"
+    },
+    {
+      icon: <CheckCircle className="h-6 w-6 text-primary" />,
+      title: "Proven Results",
+      description: "Track record of successful student outcomes and achievements"
+    }
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-white">
+      <div className="container-width section-padding">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
+            Why Choose <span className="text-gradient">MiM Academy</span>?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We believe in the power of personalized education to transform lives and unlock potential.
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Image */}
+          <AnimatedSection animation="slide-right">
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="MiM Academy learning environment"
+                className="rounded-2xl shadow-xl w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"></div>
+            </div>
+          </AnimatedSection>
+
+          {/* Right Content */}
+          <AnimatedSection animation="slide-left" delay={200}>
+            <div className="space-y-8">
+              <div className="prose prose-lg text-gray-700">
+                <p className="text-lg leading-relaxed">
+                  At MiM Academy, we understand that every learner is unique. Our approach combines traditional 
+                  teaching excellence with modern educational methodologies to create a learning environment 
+                  that fosters growth, confidence, and success.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Whether you're a student preparing for international exams, a professional looking to enhance 
+                  your skills, or a parent seeking guidance for your child's education, we provide comprehensive 
+                  support tailored to your specific goals and learning style.
+                </p>
+              </div>
+
+              {/* Features Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {features.map((feature, index) => (
+                  <AnimatedSection 
+                    key={index} 
+                    animation="fade-up" 
+                    delay={index * 100}
+                    className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="flex-shrink-0 mt-1">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutSection;
