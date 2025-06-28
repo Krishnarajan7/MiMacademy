@@ -6,11 +6,11 @@ import AnimatedSection from '@/components/AnimatedSection';
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "IELTS Student",
+      name: "Yamini AshokKumar",
+      role: "Parent",
       rating: 5,
-      feedback: "MiM Academy helped me achieve my target IELTS score of 8.0. The personalized coaching and mock tests were incredibly helpful. Highly recommended!",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      feedback: "Thank you for helping with my son’s project. We really appreciate the support and guidance. The coaching was clear and easy to follow. The mentor explained the concepts well, which helped my son finish the project and understand the topic better. It was nice to see his confidence and interest grow.We’re very happy with the coaching and overall experience.",
+      // image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     {
       name: "David Chen",
@@ -19,34 +19,34 @@ const TestimonialsSection = () => {
       feedback: "The communication skills course transformed my confidence at work. The trainers are exceptional and the flexible timing worked perfectly with my schedule.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
-    {
-      name: "Maria Rodriguez",
-      role: "Parent",
-      rating: 5,
-      feedback: "My daughter's academic performance improved significantly after joining MiM Academy. The tutors genuinely care about student success.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      name: "Ahmed Hassan",
-      role: "TOEFL Student",
-      rating: 5,
-      feedback: "Excellent TOEFL preparation! I scored 110/120 thanks to the comprehensive training and expert guidance. The investment was worth every penny.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      name: "Emily Davis",
-      role: "Career Guidance Student",
-      rating: 5,
-      feedback: "The career counseling sessions helped me make informed decisions about my future. I'm now pursuing my dream career path with confidence.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      name: "Michael Thompson",
-      role: "Grammar Course Student",
-      rating: 5,
-      feedback: "As a working professional, the grammar course helped me communicate more effectively. The online format was convenient and very well structured.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    }
+    // {
+    //   name: "Maria Rodriguez",
+    //   role: "Parent",
+    //   rating: 5,
+    //   feedback: "My daughter's academic performance improved significantly after joining MiM Academy. The tutors genuinely care about student success.",
+    //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    // },
+    // {
+    //   name: "Ahmed Hassan",
+    //   role: "TOEFL Student",
+    //   rating: 5,
+    //   feedback: "Excellent TOEFL preparation! I scored 110/120 thanks to the comprehensive training and expert guidance. The investment was worth every penny.",
+    //   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    // },
+    // {
+    //   name: "Emily Davis",
+    //   role: "Career Guidance Student",
+    //   rating: 5,
+    //   feedback: "The career counseling sessions helped me make informed decisions about my future. I'm now pursuing my dream career path with confidence.",
+    //   image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    // },
+    // {
+    //   name: "Michael Thompson",
+    //   role: "Grammar Course Student",
+    //   rating: 5,
+    //   feedback: "As a working professional, the grammar course helped me communicate more effectively. The online format was convenient and very well structured.",
+    //   image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    // }
   ];
 
   const renderStars = (rating) => {

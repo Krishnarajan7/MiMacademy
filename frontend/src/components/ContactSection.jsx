@@ -3,8 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Instagram, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Instagram, CheckCircle, XCircle } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ const ContactSection = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -21,10 +24,83 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+  const validateForm = () => {
+    if (!formData.name.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your full name",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    if (!formData.message.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your message",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Submitting enquiry to Google Sheets:', formData);
+      
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzT5cxg8pYsqTXkrmSpduely8MvZ-C9ATXIUryJj14xbYUBEfO_YPTn2_jIcgeO_roPLg/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'enquiry',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      toast({
+        title: "Enquiry Submitted Successfully! 🎉",
+        description: "Thank you for your interest! We'll get back to you within 24 hours.",
+        className: "border-green-200 bg-green-50 text-green-800",
+      });
+      
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting enquiry:', error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -67,7 +143,6 @@ const ContactSection = () => {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <div className="space-y-8">
             <AnimatedSection animation="slide-right">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
@@ -100,7 +175,6 @@ const ContactSection = () => {
               </div>
             </AnimatedSection>
 
-            {/* CTA Section */}
             <AnimatedSection animation="fade-up" delay={400}>
               <Card className="gradient-primary text-white border-0">
                 <CardContent className="p-8 text-center">
@@ -131,7 +205,6 @@ const ContactSection = () => {
             </AnimatedSection>
           </div>
 
-          {/* Contact Form */}
           <AnimatedSection animation="slide-left">
             <Card className="border-0 shadow-lg">
               <CardHeader>
@@ -139,7 +212,7 @@ const ContactSection = () => {
                 <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -152,8 +225,9 @@ const ContactSection = () => {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full"
+                        className="w-full transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                         placeholder="Enter your full name"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -167,12 +241,12 @@ const ContactSection = () => {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full"
+                        className="w-full transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                         placeholder="Enter your email"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
-                  
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
@@ -183,11 +257,11 @@ const ContactSection = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full"
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                       placeholder="Enter your phone number"
+                      disabled={isSubmitting}
                     />
                   </div>
-                  
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
@@ -199,19 +273,27 @@ const ContactSection = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={5}
-                      className="w-full"
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                       placeholder="Tell us about your learning goals and how we can help..."
+                      disabled={isSubmitting}
                     />
                   </div>
-                  
                   <Button 
-                    type="submit" 
-                    className="w-full gradient-primary text-white hover:opacity-90 transition-opacity"
+                    className="w-full gradient-primary text-white hover:opacity-90 transition-all duration-200 disabled:opacity-50"
                     size="lg"
+                    disabled={isSubmitting}
+                    onClick={handleSubmit}
                   >
-                    Send Enquiry
+                    {isSubmitting ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        <span>Submitting...</span>
+                      </div>
+                    ) : (
+                      'Send Enquiry'
+                    )}
                   </Button>
-                </form>
+                </div>
               </CardContent>
             </Card>
           </AnimatedSection>

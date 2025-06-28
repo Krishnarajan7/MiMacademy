@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
-    { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
+    // { icon: <Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
+    // { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
     { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/mimacademyofficial", label: "Instagram" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Youtube className="h-5 w-5" />, href: "#", label: "YouTube" },
+    // { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
+    // { icon: <Youtube className="h-5 w-5" />, href: "#", label: "YouTube" },
   ];
 
   const quickLinks = [
@@ -16,7 +16,7 @@ const Footer = () => {
     { name: "Our Courses", href: "/courses" },
     { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
-    { name: "Privacy Policy", href: "#" },
+    // { name: "Privacy Policy", href: "#" },
     { name: "Terms of Service", href: "#" },
   ];
 
@@ -37,7 +37,7 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-1 space-y-6">
             <div>
               <img
-                src="/lovable-uploads/32cf4d4f-b982-406b-8030-cadc1abaf018.png"
+                src="/images/logo.jpg"
                 alt="MiM Academy"
                 className="h-12 w-auto mb-4 brightness-0 invert"
               />
@@ -54,7 +54,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-gray-300 text-sm">info@mimacademy.com</span>
+                <span className="text-gray-300 text-sm">info@mimacademy.org</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Instagram className="h-4 w-4 text-primary flex-shrink-0" />
@@ -121,7 +121,7 @@ const Footer = () => {
             </div>
 
             {/* Newsletter */}
-            <div>
+            {/* <div>
               <h5 className="font-semibold mb-3 text-white">Newsletter</h5>
               <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                 Subscribe to get educational tips and updates.
@@ -136,7 +136,7 @@ const Footer = () => {
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.jsx';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -30,27 +30,43 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-        : 'bg-white/90 backdrop-blur-sm shadow-sm'
+        ? 'bg-white/98 backdrop-blur-md shadow-lg' 
+        : 'bg-white/95 backdrop-blur-sm shadow-sm'
     }`}>
       <div className="container-width section-padding">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105">
-            <img
-              src="/lovable-uploads/32cf4d4f-b982-406b-8030-cadc1abaf018.png"
-              alt="MiM Academy"
-              className="h-10 w-auto md:h-12"
-            />
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+          {/* Logo - Using new background-removed logo with enhanced visibility */}
+          <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 flex-shrink-0">
+            <div className="relative">
+              <img
+                src="/images/logo.jpg"
+                alt="MiM Academy"
+                className="h-12 w-auto sm:h-14 md:h-16 lg:h-18 xl:h-20 object-contain"
+                style={{ 
+                  maxWidth: '280px',
+                  minWidth: '120px'
+                }}
+                onError={(e) => {
+                  console.error('Logo failed to load:', e);
+                  // Fallback to text logo
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const fallback = document.createElement('div');
+                  fallback.innerHTML = '<span class="text-xl sm:text-2xl font-bold text-primary">MiM Academy</span>';
+                  target.parentNode?.appendChild(fallback);
+                }}
+                onLoad={() => console.log('New logo loaded successfully')}
+              />
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Better spacing for smaller screens */}
+          <nav className="hidden md:flex lg:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium transition-all duration-300 relative group ${
+                className={`font-medium transition-all duration-300 relative group text-sm lg:text-base ${
                   isActive(item.href)
                     ? 'text-primary'
                     : 'text-gray-700 hover:text-primary'
@@ -64,17 +80,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
+          {/* CTA Button - Responsive sizing */}
+          <div className="hidden md:flex flex-shrink-0">
             <Link to="/contact">
-              <Button className="gradient-primary text-white hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
+              <Button className="gradient-primary text-white hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg text-sm lg:text-base px-3 lg:px-4 xl:px-6 py-2">
                 Enroll Now
               </Button>
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-primary transition-all duration-300 p-2 hover:bg-gray-100 rounded-lg"
@@ -84,18 +100,18 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
+        {/* Mobile Navigation - Improved positioning and animations */}
+        <div className={`md:hidden fixed left-0 right-0 transition-all duration-300 overflow-hidden z-40 ${
           isMobileMenuOpen 
-            ? 'max-h-96 opacity-100 border-t bg-white/95 backdrop-blur-md' 
-            : 'max-h-0 opacity-0'
+            ? 'max-h-screen opacity-100 bg-white shadow-xl top-16 sm:top-18' 
+            : 'max-h-0 opacity-0 top-16 sm:top-18'
         }`}>
-          <div className="px-2 pt-4 pb-6 space-y-2">
+          <div className="px-4 py-6 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navItems.map((item, index) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`block px-4 py-3 transition-all duration-300 rounded-lg transform ${
+                className={`block px-4 py-3 transition-all duration-300 rounded-lg transform text-base ${
                   isActive(item.href)
                     ? 'text-primary bg-primary/10 translate-x-2'
                     : 'text-gray-700 hover:text-primary hover:bg-gray-50 hover:translate-x-1'
@@ -106,9 +122,9 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="px-4 py-2">
+            <div className="px-4 py-2 pt-4 border-t border-gray-100 mt-4">
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full gradient-primary text-white hover:opacity-90 transition-all duration-300 shadow-lg">
+                <Button className="w-full gradient-primary text-white hover:opacity-90 transition-all duration-300 shadow-lg py-3">
                   Enroll Now
                 </Button>
               </Link>
