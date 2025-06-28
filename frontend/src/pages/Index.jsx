@@ -11,10 +11,10 @@ import PageTransition from '@/components/PageTransition';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <PageTransition>
-        <main className="pt-16">
+        <main>
           <HeroSection />
           <AboutSection />
           <CoursesSection />
