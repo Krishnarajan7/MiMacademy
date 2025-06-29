@@ -27,13 +27,13 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-white">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 font-poppins leading-tight">
             Why Choose <span className="text-gradient">MiM Academy</span>?
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-3">
             We believe in the power of personalized education to transform lives and unlock potential.
           </p>
         </AnimatedSection>
@@ -53,7 +53,7 @@ const AboutSection = () => {
 
           {/* Right Content */}
           <AnimatedSection animation="slide-left" delay={200}>
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-6 sm:space-y-8 px-2 sm:px-0">
               <div className="prose prose-lg text-gray-700">
                 <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                   At MiM Academy, we understand that every learner is unique. Our approach combines traditional 
@@ -79,9 +79,9 @@ const AboutSection = () => {
                     <div className="flex-shrink-0 mt-1">
                       {feature.icon}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">{feature.title}</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{feature.description}</p>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">{feature.description}</p>
                     </div>
                   </AnimatedSection>
                 ))}

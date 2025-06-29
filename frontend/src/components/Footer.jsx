@@ -144,18 +144,18 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-400 text-sm text-center sm:text-left">
-              © 2024 MiM Academy. All rights reserved.
+              © 2025 MiM Academy. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
-              </a>
+              </a> */}
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Cookie Policy
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
