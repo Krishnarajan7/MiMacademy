@@ -5,6 +5,7 @@ import PageTransition from '@/components/PageTransition';
 import AnimatedSection from '@/components/AnimatedSection';
 import { CheckCircle, Users, Clock, Target, Award, BookOpen } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const features = [
@@ -41,18 +42,18 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <PageTransition>
-        <main className="pt-16">
+        <main className="pt-16 overflow-x-hidden">
           {/* Hero Section */}
-          <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <AnimatedSection className="text-center mb-12 sm:mb-16">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins leading-tight">
+          <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-purple-50 overflow-x-hidden">
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+              <AnimatedSection className="text-center mb-8 sm:mb-12 lg:mb-16">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 font-poppins leading-tight">
                   About <span className="text-gradient">MiM Academy</span>
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                   Empowering learners worldwide with personalized education and expert guidance.
                 </p>
               </AnimatedSection>
@@ -60,11 +61,11 @@ const About = () => {
           </section>
 
           {/* Mission Section */}
-          <section className="py-16 sm:py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
                 <AnimatedSection animation="slide-right">
-                  <div className="relative">
+                  <div className="relative max-w-md sm:max-w-lg lg:max-w-xl mx-auto lg:mx-0">
                     <img
                       src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                       alt="Students learning together"
@@ -75,16 +76,16 @@ const About = () => {
                 </AnimatedSection>
 
                 <AnimatedSection animation="slide-left" delay={200}>
-                  <div className="space-y-6">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 font-poppins leading-tight">
+                  <div className="space-y-4 sm:space-y-6 px-2 sm:px-0">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 font-poppins leading-tight">
                       Our Mission
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
                       At MiM Academy, we believe that every individual has unique potential waiting to be unlocked. 
                       Our mission is to provide personalized, high-quality education that empowers learners to achieve 
                       their academic and professional goals.
                     </p>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
                       We combine traditional teaching excellence with innovative educational methodologies to create 
                       a learning environment that fosters growth, confidence, and success for students of all ages 
                       and backgrounds.
@@ -96,18 +97,18 @@ const About = () => {
           </section>
 
           {/* Features Grid */}
-          <section className="py-16 sm:py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <AnimatedSection className="text-center mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-poppins leading-tight">
+          <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 overflow-x-hidden">
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+              <AnimatedSection className="text-center mb-12 sm:mb-16">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 font-poppins leading-tight">
                   What Makes Us <span className="text-gradient">Different</span>
                 </h2>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                   Discover the unique advantages that set MiM Academy apart in the world of education.
                 </p>
               </AnimatedSection>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {features.map((feature, index) => (
                   <AnimatedSection 
                     key={index} 
@@ -115,14 +116,14 @@ const About = () => {
                     delay={index * 100}
                   >
                     <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 h-full group">
-                      <CardContent className="p-8 text-center">
-                        <div className="mx-auto mb-6 p-4 bg-primary/10 rounded-full w-fit group-hover:bg-primary/20 transition-colors">
+                      <CardContent className="p-6 sm:p-8 text-center">
+                        <div className="mx-auto mb-4 sm:mb-6 p-3 sm:p-4 bg-primary/10 rounded-full w-fit group-hover:bg-primary/20 transition-colors">
                           {feature.icon}
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
                           {feature.title}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           {feature.description}
                         </p>
                       </CardContent>
@@ -134,28 +135,28 @@ const About = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="py-16 sm:py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
               <AnimatedSection animation="fade-up">
                 <Card className="gradient-primary text-white border-0 shadow-2xl">
-                  <CardContent className="p-8 sm:p-12 text-center">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-poppins leading-tight">
+                  <CardContent className="p-6 sm:p-8 lg:p-12 text-center">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 font-poppins leading-tight">
                       Ready to Start Your Learning Journey?
                     </h2>
-                    <p className="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed px-2">
                       Join thousands of successful students who have transformed their academic and professional lives with MiM Academy.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <a href="/courses" className="inline-block">
-                        <button className="bg-white text-primary hover:bg-gray-100 transition-colors px-8 py-4 rounded-lg font-semibold text-lg shadow-lg w-full sm:w-auto">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                      <Link to="/courses" className="inline-block w-full sm:w-auto">
+                        <button className="bg-white text-primary hover:bg-gray-100 transition-colors px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg w-full">
                           Explore Courses
                         </button>
-                      </a>
-                      <a href="/contact" className="inline-block">
-                        <button className="border-2 border-white text-white hover:bg-white hover:text-primary transition-colors px-8 py-4 rounded-lg font-semibold text-lg w-full sm:w-auto">
+                      </Link>
+                      <Link to="/contact" className="inline-block w-full sm:w-auto">
+                        <button className="border-2 border-white text-white hover:bg-white hover:text-primary transition-colors px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg w-full">
                           Contact Us
                         </button>
-                      </a>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>

@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Header />
       <PageTransition>
-        <main>
+        <main className="overflow-x-hidden">
           <HeroSection />
           <AboutSection />
           <CoursesSection />
