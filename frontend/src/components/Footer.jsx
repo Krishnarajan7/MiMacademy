@@ -21,12 +21,13 @@ const Footer = () => {
   ];
 
   const courses = [
-    { name: "IELTS Preparation", href: "/courses" },
-    { name: "TOEFL Training", href: "/courses" },
-    { name: "Grammar & Communication", href: "/courses" },
-    { name: "Professional Skills", href: "/courses" },
-    { name: "Academic Coaching", href: "/courses" },
-    { name: "Career Guidance", href: "/courses" },
+    { name: "SPSS for Statistical Analysis", href: "/courses" },
+    { name: "Data Analysis with Power BI", href: "/courses" },
+    { name: "Microwave Engineering Essentials", href: "/courses" },
+    { name: "Python Programming", href: "/courses" },
+    { name: "IoT (Internet of Things) with ESP32", href: "/courses" },
+    { name: "RF Circuit Design and Simulation", href: "/courses" },
+    { name: "More Courses....", href: "/courses" },
   ];
 
   return (
