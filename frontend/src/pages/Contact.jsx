@@ -198,7 +198,7 @@ const Contact = () => {
       console.log("Submitting registration to Google Sheets:", registrationData);
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyEHKbSx8NBXwK4BWZeeMcuUQUOwTE1QsMOJqoX_6ETZKMfbAnLOGJm2bi74jL88Tig/exec",
+        "https://script.google.com/macros/s/AKfycbyoY5tRY7JEWmgp2uszhzzY5qaZJhCxms1m0rKfThoCkTRH9ZWVkZW17pgp9jVwQnkb/exec",
         {
           method: "POST",
           mode: "no-cors",
@@ -219,7 +219,7 @@ const Contact = () => {
         }
       );
 
-      console.log("Fetch response status:", response); // Note: no-cors limits response access
+      console.log("Fetch response status:", response); 
       toast({
         title: "Registration Completed Successfully! 🚀",
         description:
@@ -277,14 +277,24 @@ const Contact = () => {
   ];
 
   const courses = [
-    "IELTS Preparation",
-    "TOEFL Training",
-    "Grammar & Communication",
-    "Professional Skills",
-    "Academic Coaching",
-    "Career Guidance",
-    "Executive Coaching",
-    "Personal Coaching",
+    "Excel Mastery: From Fundamentals to Advanced Analytics",
+    "MATLAB for Engineers and Data Analysis",
+    "Python Programming: From Zero to Practical Skills",
+    "PowerPoint Essentials: Create Impactful Presentations",
+    "Microsoft Word Mastery: Professional Documents Made Easy",
+    "SPSS for Statistical Analysis",
+    "Project Management with Microsoft Project",
+    "Data Analysis with Power BI",
+    "Public Speaking & Presentation Skills",
+    "Introduction to Electronics & Circuit Design",
+    "IoT (Internet of Things) with ESP32",
+    "MATLAB for Electrical and Electronics Engineers",
+    "RF Basics: Introduction to Radio Frequency Engineering",
+    "RF Circuit Design and Simulation",
+    "Antenna Design and Propagation Fundamentals",
+    "Microwave Engineering Essentials",
+    "Wireless Communication Systems (RF Focused)",
+    "RF Measurements and Testing Techniques",
   ];
 
   return (
