@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden pt-14 sm:pt-16 lg:pt-18"
+      className="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden pt-28 sm:pt-32 lg:pt-36"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 xl:py-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
@@ -23,7 +23,7 @@ const HeroSection = () => {
             </h1>
 
             <AnimatedSection animation="fade-up" delay={200}>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-justify max-w-2xl mx-auto lg:mx-0">
                 Transform your academic and career potential with personalized
                 guidance from expert tutors. We provide comprehensive coaching
                 for students, professionals, and parents.
@@ -78,7 +78,7 @@ const HeroSection = () => {
           >
             <div className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                src="/images/lpage.jpg"
                 alt="Web development and online learning platform"
                 className="rounded-2xl shadow-2xl w-full h-auto transition-transform duration-300 hover:scale-105"
               />

@@ -41,7 +41,7 @@ const Header = () => {
       }`}
     >
       <div className="container-width section-padding">
-        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+        <div className="flex items-center justify-between h-24 sm:h-28 md:h-28 lg:h-32 px-4 sm:px-6">
           <Link
             to="/"
             onClick={handleLinkClick}
@@ -51,14 +51,13 @@ const Header = () => {
               <img
                 src="/images/Logo-bgremove.png"
                 alt="MiM Academy"
-                className="h-24 w-auto sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain"
+                className="h-24 sm:h-28 md:h-32 lg:h-36 object-contain"
                 style={{
-                  maxWidth: "280px",
-                  minWidth: "120px",
+                  maxWidth: "400px",
+                  minWidth: "180px",
                 }}
                 onError={(e) => {
                   console.error("Logo failed to load:", e);
-                  // Fallback to text logo
                   const target = e.currentTarget;
                   target.style.display = "none";
                   const fallback = document.createElement("div");
@@ -71,7 +70,6 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Better spacing for smaller screens */}
           <nav className="hidden md:flex lg:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             {navItems.map((item) => (
               <Link
@@ -94,7 +92,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button - Responsive sizing */}
           <div className="hidden md:flex flex-shrink-0">
             <Link to="/contact" onClick={handleLinkClick}>
               <Button className="gradient-primary text-white hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg text-sm lg:text-base px-3 lg:px-4 xl:px-6 py-2">
@@ -103,7 +100,6 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,12 +110,11 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation - Improved positioning and animations */}
         <div
           className={`md:hidden fixed left-0 right-0 transition-all duration-300 overflow-hidden z-40 ${
             isMobileMenuOpen
-              ? "max-h-screen opacity-100 bg-white shadow-xl top-16 sm:top-18"
-              : "max-h-0 opacity-0 top-16 sm:top-18"
+              ? "max-h-screen opacity-100 bg-white shadow-xl top-24"
+              : "max-h-0 opacity-0 top-24"
           }`}
         >
           <div className="px-4 py-6 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
