@@ -195,7 +195,10 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      console.log("Submitting registration to Google Sheets:", registrationData);
+      console.log(
+        "Submitting registration to Google Sheets:",
+        registrationData
+      );
 
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbyoY5tRY7JEWmgp2uszhzzY5qaZJhCxms1m0rKfThoCkTRH9ZWVkZW17pgp9jVwQnkb/exec",
@@ -219,7 +222,7 @@ const Contact = () => {
         }
       );
 
-      console.log("Fetch response status:", response); 
+      console.log("Fetch response status:", response);
       toast({
         title: "Registration Completed Successfully! 🚀",
         description:
@@ -298,12 +301,12 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <PageTransition>
-        <main className="pt-16">
+        <main className="pt-16 overflow-x-hidden">
           <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-            <div className="container-width section-padding">
+            <div className="container-width section-padding max-w-full mx-auto">
               <AnimatedSection className="text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins">
                   Get In <span className="text-gradient">Touch</span>
@@ -318,7 +321,7 @@ const Contact = () => {
           </section>
 
           <section className="py-20 bg-white">
-            <div className="container-width section-padding">
+            <div className="container-width section-padding max-w-full mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div className="space-y-8">
                   <AnimatedSection animation="slide-right">
@@ -332,7 +335,7 @@ const Contact = () => {
                           animation="scale-up"
                           delay={index * 100}
                         >
-                          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow w-full">
                             <CardContent className="p-6">
                               <div className="flex items-start space-x-4">
                                 <div className="flex-shrink-0 p-2 bg-primary/10 rounded-lg">
@@ -360,7 +363,7 @@ const Contact = () => {
                   </AnimatedSection>
 
                   <AnimatedSection animation="fade-up" delay={400}>
-                    <Card className="gradient-primary text-white border-0">
+                    <Card className="gradient-primary text-white border-0 w-full">
                       <CardContent className="p-8">
                         <h3 className="text-2xl font-bold mb-6">
                           Quick Contact
@@ -410,7 +413,7 @@ const Contact = () => {
                 </div>
 
                 <AnimatedSection animation="slide-left">
-                  <Card className="border-0 shadow-lg">
+                  <Card className="border-0 shadow-lg w-full">
                     <CardHeader>
                       <div className="flex space-x-4 mb-4">
                         <Button
@@ -710,10 +713,10 @@ const Contact = () => {
           </section>
 
           <section className="py-20 bg-gray-50">
-            <div className="container-width section-padding">
+            <div className="container-width section-padding max-w-full mx-auto">
               <AnimatedSection className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
-                  Visit Our{" "}
+                  Visit Our{""}
                   <span className="text-gradient">Learning Center</span>
                 </h2>
                 <p className="text-xl text-gray-600">
@@ -722,7 +725,7 @@ const Contact = () => {
                 </p>
               </AnimatedSection>
               <AnimatedSection animation="scale-up" delay={200}>
-                <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+                <div className="bg-white rounded-xl p-8 shadow-lg text-center w-full">
                   <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4">
                     Learning Center Address
@@ -734,9 +737,15 @@ const Contact = () => {
                     <br />
                     United Kingdom
                   </p>
-                  <Button className="gradient-primary text-white hover:opacity-90">
-                    Get Directions
-                  </Button>
+                  <a
+                    href="https://maps.app.goo.gl/C2ZuhRFFyRxgKcYEA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="gradient-primary text-white hover:opacity-90">
+                      Get Directions
+                    </Button>
+                  </a>
                 </div>
               </AnimatedSection>
             </div>

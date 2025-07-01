@@ -12,15 +12,49 @@ import {
   CheckCircle,
   Clock,
   Users,
+  GraduationCap,
+  Laptop,
+  Zap,
+  Target,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AcademicCourses = () => {
   const courses = [
     {
+      title: "Key Stage 3 Support",
+      subtitle: "For Years 7–9 students",
+      icon: <BookOpen className="h-8 w-8 text-primary" />,
+      description:
+        "At this critical stage in secondary education, students begin developing the mindset and academic habits that shape their future success. We provide structured, engaging support for Maths and Science to ensure students build a strong academic foundation and grow in confidence before entering GCSEs.",
+      features: [
+        "📘 Mathematics (KS3): Fluency with numbers, logical thinking, and problem-solving strategies",
+        "🔬 Science (KS3): Combined biology, chemistry, and physics with practical examples",
+        "Tailored approach matching school curriculum while deepening understanding",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      color: "from-orange-50 to-amber-50",
+    },
+    {
+      title: "GCSE Subject Support",
+      subtitle: "For Years 10–11 students | Exam Boards: Edexcel | AQA | OCR",
+      icon: <GraduationCap className="h-8 w-8 text-primary" />,
+      description:
+        "Our GCSE courses are tailored to meet UK national curriculum standards and exam board requirements. We are best with clear explanations, structured practice, and focused exam preparation, we help students build confidence and achieve strong results.",
+      features: [
+        "📐 GCSE Mathematics: Algebra, Geometry, Statistics & Probability, Higher/Foundation Tier Support",
+        "⚛ GCSE Physics: Motion, Forces, Energy, Electricity & Magnetism, Required Practicals",
+        "💻 GCSE Computer Science: Python Programming, Algorithms, Systems Architecture, Cybersecurity",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      color: "from-teal-50 to-cyan-50",
+    },
+    {
       title: "SATs Preparation (Key Stage 2)",
       subtitle: "For Year 6 students (Ages 10–11)",
-      icon: <BookOpen className="h-8 w-8 text-primary" />,
+      icon: <Target className="h-8 w-8 text-primary" />,
       description:
         "Our SATs program is designed to strengthen core skills in English and Maths. Through structured lessons, past paper practice, and individual support, we ensure students are fully prepared and confident for their end-of-year assessments.",
       features: [
@@ -52,7 +86,7 @@ const AcademicCourses = () => {
       subtitle: "For Year 12–13 students (Ages 16–18)",
       icon: <Atom className="h-8 w-8 text-primary" />,
       description:
-        "Our Physics course simplifies complex concepts and helps students develop a deep understanding of theoretical and practical physics. We focus on exam technique, mathematical application, and conceptual clarity.",
+        "Our Physics course simplifies complex concepts and helps students develop a deep understanding of theoretical and practical physics. We focus on exam technique, strategies, mathematical application, and conceptual clarity.",
       features: [
         "Clear explanations of core topics (Mechanics, Electricity, Waves, Nuclear, etc.)",
         "Practice with tricky calculations and long-answer questions",
@@ -122,7 +156,7 @@ const AcademicCourses = () => {
                             </div>
                           </div>
 
-                          <p className="text-gray-700 text-lg leading-relaxed">
+                          <p className="text-gray-700 text-lg leading-relaxed text-justify">
                             {course.description}
                           </p>
 
@@ -193,7 +227,7 @@ const AcademicCourses = () => {
                     <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 font-poppins leading-tight">
                       Ready to Excel in Your Studies?
                     </h2>
-                    <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto px-2">
+                    <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto px-2 text-justify">
                       Join hundreds of students who have achieved academic
                       success with our expert guidance and proven teaching
                       methods.
