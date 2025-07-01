@@ -109,7 +109,7 @@ const Testimonials = () => {
   const stats = [
     { number: "100+", label: "Students Coached" },
     { number: "95%", label: "Success Rate" },
-    { number: "50+", label: "Expert Tutors" },
+    { number: "10+", label: "Expert Tutors" },
     { number: "24/7", label: "Support Available" }
   ];
 

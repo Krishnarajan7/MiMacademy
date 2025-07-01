@@ -64,19 +64,19 @@ const Courses = () => {
       hasPDF: false,
     },
     {
-      icon: <Code className="h-8 w-8 text-primary" />,
-      title: "Python Programming: From Zero to Practical Skills",
+      icon: <Calculator className="h-8 w-8 text-primary" />,
+      title: "MATLAB for Electrical and Electronics Engineers",
       description:
-        "Start your programming journey with Python — one of the most popular and versatile languages today. This beginner-friendly course covers the core concepts of Python programming through hands-on exercises and real-world examples.",
+        "Apply MATLAB in signal processing, circuit analysis, and control systems. This course is tailored for EEE students needing hands-on analytical and simulation skills.",
       features: [
-        "Core Concepts",
-        "Hands-on Exercises",
-        "Task Automation",
-        "Small Projects",
+        "Signal Processing",
+        "Circuit Analysis",
+        "Control Systems",
+        "Simulation Skills",
       ],
-      duration: "8 Weeks",
-      schedule: "2 Hours per Week",
-      level: "Beginner",
+      duration: "6 Weeks",
+      schedule: "TBA",
+      level: "Beginner to Intermediate",
       hasPDF: false,
     },
     {
@@ -204,19 +204,19 @@ const Courses = () => {
       hasPDF: false,
     },
     {
-      icon: <Calculator className="h-8 w-8 text-primary" />,
-      title: "MATLAB for Electrical and Electronics Engineers",
+      icon: <Code className="h-8 w-8 text-primary" />,
+      title: "Python Programming: From Zero to Practical Skills",
       description:
-        "Apply MATLAB in signal processing, circuit analysis, and control systems. This course is tailored for EEE students needing hands-on analytical and simulation skills.",
+        "Start your programming journey with Python — one of the most popular and versatile languages today. This beginner-friendly course covers the core concepts of Python programming through hands-on exercises and real-world examples.",
       features: [
-        "Signal Processing",
-        "Circuit Analysis",
-        "Control Systems",
-        "Simulation Skills",
+        "Core Concepts",
+        "Hands-on Exercises",
+        "Task Automation",
+        "Small Projects",
       ],
-      duration: "6 Weeks",
-      schedule: "TBA",
-      level: "Beginner to Intermediate",
+      duration: "8 Weeks",
+      schedule: "2 Hours per Week",
+      level: "Beginner",
       hasPDF: false,
     },
     {
@@ -459,8 +459,7 @@ const Courses = () => {
                         <Button
                           size="lg"
                           variant="outline"
-                          className="border-2 border-white text-white hover:bg-white hover:text-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
-                        >
+                          className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary transition-colors duration-300 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto">
                           Contact Us
                         </Button>
                       </Link>
