@@ -56,7 +56,7 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-4 lg:space-x-6 text-xs sm:text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span>500+ Students</span>
+                  <span>100+ Students</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
@@ -78,9 +78,9 @@ const HeroSection = () => {
           >
             <div className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <img
-                src="/images/HeroBG.jpg"
-                alt="Online learning and coaching"
-                className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3] transition-transform duration-300 hover:scale-105"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Web development and online learning platform"
+                className="rounded-2xl shadow-2xl w-full h-auto transition-transform duration-300 hover:scale-105"
               />
             </div>
             {/* Decorative elements - Responsive sizing */}

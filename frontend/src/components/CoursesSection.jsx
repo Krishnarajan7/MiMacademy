@@ -206,7 +206,7 @@ const CoursesSection = () => {
         </div>
 
         <AnimatedSection className="text-center mt-12">
-          <Link to="/Contact" className="block">
+          <Link to="/Courses" className="block">
             <Button
               size="lg"
               className="gradient-primary text-white hover:opacity-90 transition-opacity"

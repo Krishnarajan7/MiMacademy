@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button.jsx';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button.jsx";
+import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,49 +13,60 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Courses', href: '/courses' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Courses", href: "/courses" },
+    { name: "Academic", href: "/academic" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (path) => location.pathname === path;
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/98 backdrop-blur-md shadow-lg' 
-        : 'bg-white/95 backdrop-blur-sm shadow-sm'
-    }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/98 backdrop-blur-md shadow-lg"
+          : "bg-white/95 backdrop-blur-sm shadow-sm"
+      }`}
+    >
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
-          {/* Logo - Using new background-removed logo with enhanced visibility */}
-          <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 flex-shrink-0">
+          <Link
+            to="/"
+            onClick={handleLinkClick}
+            className="flex items-center transition-transform duration-200 hover:scale-105 flex-shrink-0"
+          >
             <div className="relative">
               <img
-                src="/images/logo.jpg"
+                src="/images/Logo-bgremove.png"
                 alt="MiM Academy"
-                className="h-12 w-auto sm:h-14 md:h-16 lg:h-18 xl:h-20 object-contain"
-                style={{ 
-                  maxWidth: '280px',
-                  minWidth: '120px'
+                className="h-24 w-auto sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain"
+                style={{
+                  maxWidth: "280px",
+                  minWidth: "120px",
                 }}
                 onError={(e) => {
-                  console.error('Logo failed to load:', e);
+                  console.error("Logo failed to load:", e);
                   // Fallback to text logo
                   const target = e.currentTarget;
-                  target.style.display = 'none';
-                  const fallback = document.createElement('div');
-                  fallback.innerHTML = '<span class="text-xl sm:text-2xl font-bold text-primary">MiM Academy</span>';
+                  target.style.display = "none";
+                  const fallback = document.createElement("div");
+                  fallback.innerHTML =
+                    '<span class="text-xl sm:text-2xl font-bold text-primary">MiM Academy</span>';
                   target.parentNode?.appendChild(fallback);
                 }}
-                onLoad={() => console.log('New logo loaded successfully')}
+                onLoad={() => console.log("New logo loaded successfully")}
               />
             </div>
           </Link>
@@ -66,23 +77,26 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
+                onClick={handleLinkClick}
                 className={`font-medium transition-all duration-300 relative group text-sm lg:text-base ${
                   isActive(item.href)
-                    ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    ? "text-primary"
+                    : "text-gray-700 hover:text-primary"
                 }`}
               >
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${
-                  isActive(item.href) ? 'w-full' : ''
-                }`}></span>
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${
+                    isActive(item.href) ? "w-full" : ""
+                  }`}
+                ></span>
               </Link>
             ))}
           </nav>
 
           {/* CTA Button - Responsive sizing */}
           <div className="hidden md:flex flex-shrink-0">
-            <Link to="/contact">
+            <Link to="/contact" onClick={handleLinkClick}>
               <Button className="gradient-primary text-white hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg text-sm lg:text-base px-3 lg:px-4 xl:px-6 py-2">
                 Enroll Now
               </Button>
@@ -101,11 +115,13 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation - Improved positioning and animations */}
-        <div className={`md:hidden fixed left-0 right-0 transition-all duration-300 overflow-hidden z-40 ${
-          isMobileMenuOpen 
-            ? 'max-h-screen opacity-100 bg-white shadow-xl top-16 sm:top-18' 
-            : 'max-h-0 opacity-0 top-16 sm:top-18'
-        }`}>
+        <div
+          className={`md:hidden fixed left-0 right-0 transition-all duration-300 overflow-hidden z-40 ${
+            isMobileMenuOpen
+              ? "max-h-screen opacity-100 bg-white shadow-xl top-16 sm:top-18"
+              : "max-h-0 opacity-0 top-16 sm:top-18"
+          }`}
+        >
           <div className="px-4 py-6 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navItems.map((item, index) => (
               <Link
@@ -113,17 +129,17 @@ const Header = () => {
                 to={item.href}
                 className={`block px-4 py-3 transition-all duration-300 rounded-lg transform text-base ${
                   isActive(item.href)
-                    ? 'text-primary bg-primary/10 translate-x-2'
-                    : 'text-gray-700 hover:text-primary hover:bg-gray-50 hover:translate-x-1'
+                    ? "text-primary bg-primary/10 translate-x-2"
+                    : "text-gray-700 hover:text-primary hover:bg-gray-50 hover:translate-x-1"
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={handleLinkClick}
               >
                 {item.name}
               </Link>
             ))}
             <div className="px-4 py-2 pt-4 border-t border-gray-100 mt-4">
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/contact" onClick={handleLinkClick}>
                 <Button className="w-full gradient-primary text-white hover:opacity-90 transition-all duration-300 shadow-lg py-3">
                   Enroll Now
                 </Button>

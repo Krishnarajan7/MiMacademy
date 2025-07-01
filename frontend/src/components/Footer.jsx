@@ -1,12 +1,24 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Phone,
+  Mail,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const socialLinks = [
     // { icon: <Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
     // { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/mimacademyofficial", label: "Instagram" },
+    {
+      icon: <Instagram className="h-5 w-5" />,
+      href: "https://instagram.com/mimacademyofficial",
+      label: "Instagram",
+    },
     // { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
     // { icon: <Youtube className="h-5 w-5" />, href: "#", label: "YouTube" },
   ];
@@ -14,6 +26,7 @@ const Footer = () => {
   const quickLinks = [
     { name: "About Us", href: "/about" },
     { name: "Our Courses", href: "/courses" },
+    { name: "Academic Programs", href: "/academic" },
     { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
     // { name: "Privacy Policy", href: "#" },
@@ -30,36 +43,48 @@ const Footer = () => {
     { name: "More Courses....", href: "/courses" },
   ];
 
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="md:col-span-2 lg:col-span-1 space-y-6">
-            <div>
+            <div className="mb-4 flex items-center space-x-3">
               <img
                 src="/images/logo.jpg"
-                alt="MiM Academy"
-                className="h-12 w-auto mb-4 brightness-0 invert"
+                alt="MiM Academy Logo"
+                className="h-16 w-auto sm:h-20 m:h-24 object-contain transition-transform duration-200 hover:scale-105"
               />
+
               <p className="text-gray-300 leading-relaxed text-sm">
-                Empowering learners with personalized coaching and expert guidance for academic and professional success.
+                Empowering learners with personalized coaching and expert
+                guidance for academic and professional success.
               </p>
             </div>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+44 (0) 7404755222</span>
+                <Phone className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">
+                  +44 (0) 7404755222
+                </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-gray-300 text-sm">info@mimacademy.org</span>
+                <Mail className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">
+                  info@mimacademy.org
+                </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Instagram className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-gray-300 text-sm">@mimacademyofficial</span>
+                <Instagram className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">
+                  @mimacademyofficial
+                </span>
               </div>
             </div>
           </div>
@@ -70,8 +95,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.href} 
+                  <Link
+                    to={link.href}
+                    onClick={handleLinkClick}
                     className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {link.name}
@@ -87,8 +113,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {courses.map((course, index) => (
                 <li key={index}>
-                  <Link 
-                    to={course.href} 
+                  <Link
+                    to={course.href}
                     className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {course.name}
@@ -101,7 +127,9 @@ const Footer = () => {
           {/* Newsletter & Social */}
           <div className="space-y-6">
             <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Stay Connected</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">
+                Stay Connected
+              </h4>
               <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                 Follow us on social media for updates and educational tips.
               </p>
@@ -111,9 +139,13 @@ const Footer = () => {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="p-2 bg-gray-800 rounded-lg hover:bg-primary transition-colors duration-200"
-                    target={social.href.startsWith('http') ? '_blank' : '_self'}
-                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                    className="p-2 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors duration-200 flex-shrink-0 text-blue-400 hover:text-white"
+                    target={social.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={
+                      social.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : ""
+                    }
                   >
                     {social.icon}
                   </a>
@@ -151,7 +183,10 @@ const Footer = () => {
               {/* <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </a> */}
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 Terms of Service
               </a>
               {/* <a href="#" className="text-gray-400 hover:text-white transition-colors">

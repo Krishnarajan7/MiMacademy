@@ -7,6 +7,7 @@ const PageTransition = ({ children }) => {
 
   useEffect(() => {
     setIsVisible(false);
+    window.scrollTo({ top:0, behavior: 'smooth'})
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
